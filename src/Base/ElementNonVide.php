@@ -5,27 +5,29 @@
     abstract class ElementNonVide extends Element
     {
         private $elements=[];
-        public function addElement(Noeud $e)
+        public function addElement(Node $e)
         {
             $this->elements[]=$e;
         }
 
-        public function toHTML()
+        public function getElements()
+        {
+            return $this->elements;
+        }
+
+        public function render()
         {
             $str="<";
-            $class=\get_class($this);
-            $class=\explode("\\",$class);
-            $str.=\strtolower($class[count($class)-1]);
-            foreach($this->getAttributes() as $k=>$v)
+
+            $str.=$this->getClassName();
+            foreach ($this->getAttributes() as $k => $v)
                 $str.=" $k\"$v\" ";
             $str.=">";
-            foreach($this->elements as $e)
-                $str.=$e->toHTML();
+            foreach ($this->elements as $e)
+                $str.=$e->render();
 
             $str="<";
-            $class=\get_class($this);
-            $class=\explode("\\",$class);
-            $str.=\strtolower($class[count($class)-1]);
+            $str.=$this->getClassName();
             $str.=">";
             
             return $str;

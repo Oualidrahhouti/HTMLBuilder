@@ -5,6 +5,7 @@ use html_builder\Html\Input;
 
     require('vendor/autoload.php');
 
-    $i=new Input(["type"=>"text","name"=>"nom"]);
-    $i->setAttribute("placeholder","type something");
-    echo $i->toHTML();
+    $inputTag=new Input(["type"=>"text","name"=>"nom"]);
+    $inputTag->setAttribute("placeholder","type something");
+
+    echo $inputTag->render();
