@@ -6,6 +6,6 @@ use html_builder\Html\Input;
     require('vendor/autoload.php');
 
     $inputTag=new Input(["type"=>"text","name"=>"nom"]);
-    $inputTag->setAttribute("placeholder","type something");
+    $inputTag->setPlaceHolder("type something");
 
     echo $inputTag->render();

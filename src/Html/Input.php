@@ -17,4 +17,9 @@
         {
             $this->setAttribute("name",$value);
         }
+
+        public function setPlaceHolder($value)
+        {
+            $this->setAttribute("placeholder", $value);
+        }
     }
