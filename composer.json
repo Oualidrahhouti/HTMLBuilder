@@ -1,0 +1,15 @@
+{
+    "name": "zzwal/html_builder",
+    "autoload": {
+        "psr-4": {
+            "html_builder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "oualid rahhouti",
+            "email": "rahhoutiwalid@gmail.com"
+        }
+    ],
+    "require": {}
+}
