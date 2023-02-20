@@ -2,10 +2,12 @@
     namespace html_builder\Base;
     abstract class Element extends Node
     {
-        protected $attributes=[];
-        public function __construct(array $attr)
+        protected $attributes;
+        public function __construct(array $attr=null)
         {
             $this->attributes=$attr;
+            if(is_null($this->attributes))
+                $this->attributes=[];
         }
 
         public  function getClassName()

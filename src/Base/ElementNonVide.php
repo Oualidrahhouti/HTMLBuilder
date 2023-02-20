@@ -1,10 +1,18 @@
 <?php
     namespace html_builder\Base;
-    use html_builder\Base\Element;
 
     abstract class ElementNonVide extends Element
     {
-        private $elements=[];
+        private $elements;
+
+        public function __construct(array $attr = null,array $elements=null)
+        {
+            parent::__construct($attr);
+            $this->elements=$elements;
+            if (is_null($this->elements))
+                $this->elements=[];
+        }
+
         public function addElement(Node $e)
         {
             $this->elements[]=$e;
@@ -23,10 +31,10 @@
             foreach ($this->getAttributes() as $k => $v)
                 $str.=" $k\"$v\" ";
             $str.=">";
-            foreach ($this->elements as $e)
+            foreach ($this->getElements() as $e)
                 $str.=$e->render();
 
-            $str="<";
+            $str.="</";
             $str.=$this->getClassName();
             $str.=">";
             

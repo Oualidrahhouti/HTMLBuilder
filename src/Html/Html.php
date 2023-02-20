@@ -2,7 +2,6 @@
 
 namespace html_builder\Html;
 
-use html_builder\Base\Element;
 use html_builder\Base\ElementNonVide;
 use html_builder\Base\Node;
 
@@ -14,8 +13,10 @@ class Html extends ElementNonVide
         {
            foreach ($this->getElements() as $element)
                if ($element->getClassName()==$e->getClassName())
-                   unset($element);
-           $this->addElement($e);
+                   return;
+           parent::addElement($e);
         }
     }
+
+
 }
